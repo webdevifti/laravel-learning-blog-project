@@ -1,0 +1,59 @@
+body{
+    background-color: crimson;
+}
+.container{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card{
+    background-color: #fff;
+    /* padding: 20px; */
+    width: 600px;
+}
+.card-header{
+    background-color: #ddd;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+.card-body{
+    padding: 30px;
+}
+.form-group{
+    margin-bottom: 10px;
+}
+.form-control{
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px;
+    border: none;
+    border: 1px solid #aaa;
+    outline: none;
+    border-radius: 3px;
+    margin-bottom: 5px;
+}
+.form-control:focus{
+    border: 1px solid crimson;
+}
+.btn{
+    border: none;
+    outline: none;
+    cursor: pointer;
+} 
+.btn-primary{
+    background-color: crimson;
+    color: #fff;
+    padding: 15px 50px;
+    border-radius: 3px;
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.invalid-feedback strong{
+    color: #fff;
+    background-color: crimson;
+    padding: 5px 10px;
+}

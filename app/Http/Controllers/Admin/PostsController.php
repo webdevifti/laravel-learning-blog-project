@@ -118,14 +118,14 @@ class PostsController extends Controller
                 'post_thumbnail' => $image_name
            ]);
         }else{
-            // unset($request->post_thumbnail);
-            Post::where('id', $id)->update([
-                'title' => $request->input('title'),
-                'category_id' => $request->input('category'),
-                'post_body' => $request->input('post_body')
-           ]);
+            unset($request->post_thumbnail);
+            
         }
-
+        Post::where('id', $id)->update([
+            'title' => $request->input('title'),
+            'category_id' => $request->input('category'),
+            'post_body' => $request->input('post_body')
+       ]);
        return redirect('/admin/posts')->with('message', "Post has been Updated successfully");
     }
 

@@ -21,7 +21,14 @@
        </div>
      @endforeach
  @endif
-        
+ <div class="message">
+    @if (session()->has('message'))
+    <div class="alert alert-danger alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Error!</strong> {{ session('message') }}
+      </div>
+    @endif
+</div>
         <div class="row">
             <div class="col-xl-6 col-lg-6">
                 <div class="card shadow mb-4">
@@ -70,10 +77,10 @@
                         @method('PUT')
                         
                         <div class="form-group">
-                            <input type="text" name="current_password" placeholder="Current Password" class="form-control" required>
+                            <input type="password" name="current_password" placeholder="Current Password" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="newpassword" placeholder="New Password" class="form-control" required>
+                            <input type="password" name="newpassword" placeholder="New Password" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-danger">Change Password</button>

@@ -71,13 +71,21 @@ class HomeController extends Controller
             'newpassword' => 'required|min:8'
 
         ]);
-       
-        $data =  $request->newpassword;
-        DB::table('users')->where('id', $id)->update([
-            'password' => Hash::make($data)
-        ]);
+        
+        $get_user_current_pass = DB::table('users')->select('password')->where('id',$id)->get();
+        
+        if (Hash::check($request->current_password, $get_user_current_pass)) {
+            $data =  $request->newpassword;
+            DB::table('users')->where('id', $id)->update([
+                'password' => Hash::make($data)
+            ]);
 
-    return redirect('/admin/profile')->with('message', "Password Changed Successfully");
+            return redirect('/admin/profile')->with('message', "Password Changed Successfully");
+        }else{
+            return redirect('/admin/profile/edit/'.$id)->with('message', "Invalid Password");
+        }
+       
+       
     }
    
 }

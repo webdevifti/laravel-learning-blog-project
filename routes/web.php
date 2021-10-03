@@ -19,6 +19,7 @@ Route::get('/', [PagesController::class, 'index'])->name('home-page');
 Route::get('/about', [PagesController::class, 'about'])->name('about-page');
 Route::get('/contact', [PagesController::class, 'contact'])->name('contact-page');
 Route::get('/resource', [PagesController::class, 'resource'])->name('resource-page');
+Route::get('/post/{slug}', [PagesController::class, 'singlePost'])->name('single-post');
 
 Auth::routes();
 Route::group(['middleware' => 'auth'], function(){

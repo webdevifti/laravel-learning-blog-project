@@ -31,7 +31,7 @@
 				</div>
 			</article>
 			@endforeach
-				
+				{{ $posts->links() }}
 			</main>
 			<aside class="col-sm-4" id="sidebar">
 				<div class="widgets">

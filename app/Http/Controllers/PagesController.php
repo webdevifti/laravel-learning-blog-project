@@ -13,10 +13,12 @@ class PagesController extends Controller
         $posts = DB::table('posts')
         ->join('categories','posts.category_id', '=', 'categories.id')
         ->select('posts.*', 'categories.category as category')
-        ->paginate(10);
+        ->where('status', 1)
+        ->orderBy('created_at', 'desc')
+        ->simplePaginate(10);
 
         // Sidebar Data
-        $sidebar_data = DB::table('posts')->select('post_thumbnail','title')->paginate(5);
+        $sidebar_data = DB::table('posts')->select('post_thumbnail','title')->where('status', 1)->orderBy('created_at', 'desc')->simplePaginate(5);
         return view('index', ['posts' => $posts, 'sidebar' => $sidebar_data]);
     }
    

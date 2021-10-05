@@ -5,11 +5,13 @@ body{
 	padding: 0;
 	margin: 0;
 	background-color: #F2F6FC;
-	font-family: ;
+	font-family: 'Roboto', sans-serif;
 }
-a{}
-a:hover{}
-a:focus{}
+/* a{} */
+a:hover{
+	text-decoration: none;
+}
+/* a:focus{}
 p{}
 h1,h2,h3,h4,h5,h6{
 
@@ -19,7 +21,7 @@ h2{}
 h3{}
 h4{}
 h5{}
-h6{}
+h6{} */
 
 
 .navbar-customization{
@@ -31,8 +33,6 @@ h6{}
 .navbar-brand{
 	font-weight: bold;
 	color: #000;
-	font-family: ;
-	font-size: ;
 }
 .navbar-toggle{
 	border: none;
@@ -60,13 +60,11 @@ h6{}
 .banner .sitename{
 	color: #fff;
 	font-weight: bold;
-	font-family: ;
 }
 .banner .site-description{
 	color: #EBEDEF;
 	font-size: 19px;
 	opacity: 0.6;
-	font-family: ;
 }
 
 article{
@@ -110,13 +108,13 @@ article{
 	text-decoration: none;
 	color: #fff;
 }
-.article-des{
+/* .article-des{
 	margin-bottom: 20px;
 	font-weight: ;
 	font-family: ;
 	font-size: ;
 	color: #;
-}
+} */
 .readmore{
 	background-color: #DC392D;
 	color: #fff;
@@ -127,4 +125,29 @@ article{
 	color: #fff;
 	text-decoration: none;
 	background-color: #DC395E;
+}
+.widgets ul{
+	margin: 0;
+	padding: 0;
+}
+.widgets ul li{
+	list-style: none;
+}
+.widgets ul li a{
+	background-color: #fff;
+	display: flex;
+	align-items: center;
+	text-align: left;
+	box-shadow: 4px 4px 18px 3px rgba(0,0,0,0.1);
+	margin-bottom: 5px;
+}
+.widgets ul li a img{
+	width: 100px;
+	height: 70px;
+	object-fit: contain;
+	margin-right: 5px;
+}
+.widgets ul li a h4{
+	color: #333;
+	font-size: 16px;
 }

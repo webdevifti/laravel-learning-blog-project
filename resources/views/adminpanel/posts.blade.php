@@ -36,6 +36,7 @@
                                 <th>Content</th>
                                 <th>Created Time</th>
                                 <th>Updated Time</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -47,6 +48,7 @@
                                 <th>Content</th>
                                 <th>Created Time</th>
                                 <th>Updated Time</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </tfoot>
@@ -59,6 +61,13 @@
                                 <td>{{ substr($post->post_body, 0, 200) }}</td>
                                 <td>{{ date('d-m-Y h:i A', strtotime($post->created_at)) }}</td>
                                 <td>{{ date('d-m-Y h:i A', strtotime($post->created_at)) }}</td>
+                                <td>
+                                    @if ($post->status == 1)
+                                        <a href="/admin/posts/{{ $post->id }}/status=active" onclick="return confirm('Are Your Sure?')" class="btn btn-info">Active</a>
+                                    @else
+                                        <a href="/admin/posts/{{ $post->id }}/status=deactive" onclick="return confirm('Are Your Sure?')" class="btn btn-danger">Deactive</a>
+                                    @endif
+                                </td>
                                 <td>
                                     <a href="/admin/posts/{{ $post->id }}/edit" class="btn btn-info btn-sm" title="Edit"><i class="fa fa-pen"></i></a>
 

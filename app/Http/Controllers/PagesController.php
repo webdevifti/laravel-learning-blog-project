@@ -9,11 +9,18 @@ class PagesController extends Controller
 {
     //
     public function index(){
-        $posts = DB::table('posts')->where('status',1)->get();
-        return view('index', ['posts' => $posts]);
+        // Posts Data
+        $posts = DB::table('posts')
+        ->join('categories','posts.category_id', '=', 'categories.id')
+        ->select('posts.*', 'categories.category as category')
+        ->paginate(10);
+
+        // Sidebar Data
+        $sidebar_data = DB::table('posts')->select('post_thumbnail','title')->paginate(5);
+        return view('index', ['posts' => $posts, 'sidebar' => $sidebar_data]);
     }
+   
     public function about(){
-        
         return view('about');
     }
     public function contact(){

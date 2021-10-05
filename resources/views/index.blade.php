@@ -23,7 +23,7 @@
 						<span class="article-publish-date">{{ $post->created_at }}</span><br>
 						
 						<div class="article-category">
-							<a href="#">{{ $post->category_id }}</a>
+							<a href="#">{{ $post->category }}</a>
 						</div>
 						<p class="">{{ substr($post->post_body, 0,200) }}</p>
 						<a href="/post/{{ $post->title }}" class="readmore">Read More <i class="fa fa-arrow-right"></i></a>
@@ -35,7 +35,21 @@
 			</main>
 			<aside class="col-sm-4" id="sidebar">
 				<div class="widgets">
-					
+					<h3 class="widget-title">Recent Posts</h3>
+					<ul>
+					  @foreach ($sidebar as $item)
+					  <li>
+						<a href="#">
+							<img src="{{ asset('images/'.$item->post_thumbnail) }}" alt="Post Thumbnail">
+							<h4>{{ $item->title }}</h4>
+						</a>
+					</li>
+					  @endforeach
+						
+			
+						
+					   
+					</ul>
 				</div>
 			</aside>
 		</div>

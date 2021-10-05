@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\Admin\PostsController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\StatusController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +32,8 @@ Route::group(['middleware' => 'auth'], function(){
     // Posts Controll Routes
     Route::resource('/admin/posts', PostsController::class);
     Route::resource('/admin/posts/{id}/edit', PostsController::class);
+    Route::get('/admin/posts/{id}/status=active', [StatusController::class, 'doDeactive']);
+    Route::get('/admin/posts/{id}/status=deactive', [StatusController::class, 'doActive']);
     // Route::resource('/admin/posts/{id}', PostsController::class);
 
 

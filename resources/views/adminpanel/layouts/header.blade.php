@@ -93,9 +93,9 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
+                <a class="nav-link" href="#">
+                    <i class="fas fa-fw fa-comment"></i>
+                    <span>Comments</span></a>
             </li>
 
             <!-- Divider -->
@@ -105,8 +105,7 @@
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
-
-          
+    
         </ul>
         <!-- End of Sidebar -->
 

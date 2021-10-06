@@ -15,7 +15,7 @@ class PagesController extends Controller
         ->select('posts.*', 'categories.category as category')
         ->where('status', 1)
         ->orderBy('created_at', 'desc')
-        ->simplePaginate(10);
+        ->simplePaginate(2);
 
         // Sidebar Data
         $sidebar_data = DB::table('posts')->select('post_thumbnail','title')->where('status', 1)->orderBy('created_at', 'desc')->simplePaginate(5);

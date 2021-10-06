@@ -14,11 +14,18 @@ class Post extends Model
     protected $fillable = [
         'title',
         'post_body',
+        'slug',
         'category_id',
         'post_thumbnail'
     ];
 
     public $timestamps = false;
 
+    public function sluggable()
+    {
+        return [
+            'slug' => ['source' => 'title']
+        ];
+    }
 
 }

@@ -12,27 +12,28 @@
 	<div class="container">
 		<div class="row">
 			<main class="col-sm-8" id="content">
-			@foreach ($posts as $post)
-			<article>
-				<div class="row">
-					<div class="col-sm-3">
-						<img class="article-thumbnail" src="{{ asset('images/'.$post->post_thumbnail) }}">
-					</div>
-					<div class="col-sm-9">
-						<h3 class="article-title"><a href="#">{{ $post->title }}</a></h3>
-						<span class="article-publish-date">{{ $post->created_at }}</span><br>
-						
-						<div class="article-category">
-							<a href="#">{{ $post->category }}</a>
+				@foreach ($posts as $post)
+					<article>
+						<div class="row">
+							<div class="col-sm-3">
+								<img class="article-thumbnail" src="{{ asset('images/'.$post->post_thumbnail) }}">
+							</div>
+							<div class="col-sm-9">
+								<h3 class="article-title"><a href="#">{{ $post->title }}</a></h3>
+								<span class="article-publish-date">{{ $post->created_at }}</span><br>
+								
+								<div class="article-category">
+									<a href="#">{{ $post->category }}</a>
+								</div>
+								<p class="">{{ substr($post->post_body, 0,200) }}</p>
+								<a href="/post/{{ $post->title }}" class="readmore">Read More <i class="fa fa-arrow-right"></i></a>
+							</div>
 						</div>
-						<p class="">{{ substr($post->post_body, 0,200) }}</p>
-						<a href="/post/{{ $post->title }}" class="readmore">Read More <i class="fa fa-arrow-right"></i></a>
-					</div>
-				</div>
-			</article>
-			@endforeach
+					</article>
+				@endforeach
 				{{ $posts->links() }}
 			</main>
+			
 			<aside class="col-sm-4" id="sidebar">
 				<div class="widgets">
 					<h3 class="widget-title">Recent Posts</h3>
@@ -45,13 +46,10 @@
 						</a>
 					</li>
 					  @endforeach
-						
-			
-						
-					   
 					</ul>
 				</div>
 			</aside>
+			
 		</div>
 	</div>
 	

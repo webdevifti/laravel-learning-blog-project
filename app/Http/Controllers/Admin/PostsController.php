@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Redirect;
 use App\Models\Post;
 use Illuminate\Support\Facades\DB;
+
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 
 class PostsController extends Controller
@@ -59,6 +62,7 @@ class PostsController extends Controller
        
        $posts = Post::create([
             'title' => $request->input('title'),
+            'slug' => SlugService::createSlug(Post::class, 'slug', $request->title),
             'category_id' => $request->input('category'),
             'post_body' => $request->input('post_body'),
             'post_thumbnail' => $image_name

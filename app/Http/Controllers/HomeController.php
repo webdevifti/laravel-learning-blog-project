@@ -51,7 +51,7 @@ class HomeController extends Controller
             $image_name = time().'-'.$request->name.'.'.$request->photo->extension();
             $request->photo->move(public_path('profile'), $image_name);
             $image = DB::table('users')->find($id);
-            unlink("profile/".$image->photo);
+            //unlink("profile/".$image->photo);
             DB::table('users')->where('id', $id)->update([
                 'photo' => $image_name
            ]);

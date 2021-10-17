@@ -62,7 +62,7 @@ class PostsController extends Controller
        
        $posts = Post::create([
             'title' => $request->input('title'),
-            'slug' => SlugService::createSlug(Post::class, 'slug', $request->title),
+            'slug' => SlugService::createSlug(Post::class, 'slug', $request->input('title')),
             'category_id' => $request->input('category'),
             'post_body' => $request->input('post_body'),
             'post_thumbnail' => $image_name
